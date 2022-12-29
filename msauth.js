@@ -77,7 +77,7 @@ return customPromise;
 
 const app = express()
 const port = 3000
-var apiKey = "fee06fca-62fc-4c25-ab23-7c87691b3053"
+var apiKey = "HYPIXEL_API_KEY"
 app.use(expressLogging(logger));
 app.get('/', (req, res) => {
     
