@@ -19,7 +19,7 @@ function replaceAll(str, find, replace) {
 function timeConverter(t){
     return new Date(t).toLocaleDateString("en-US")
 }
-//https://login.live.com/oauth20_authorize.srf?client_id=25ac71ae-716f-4b18-bea0-cfe7aba6ec47&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000&scope=XboxLive.signin%20offline_access
+//https://login.live.com/oauth20_authorize.srf?client_id=XXX&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000&scope=XboxLive.signin%20offline_access
 
 
 function getJavaAccess(code){
