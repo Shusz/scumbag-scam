@@ -3,24 +3,17 @@
 const ax = require('axios');
 var querystring = require('querystring');
 const { Webhook, MessageBuilder } = require('discord-webhook-node');
-var express = require('express'),
-    expressLogging = require('express-logging'),
-    logger = require('logops');
+var express = require('express')
+var fs = require('fs')
 
-var settings = {
-    "client_secret":"",
-    "client_id":"",
-    "redirect_uri":"http://localhost:3000",
-    "webhook":"https://discord.com/webhook/XXXXX"
-}
+var settings = fs.readFileSync('settings.json')
+
 function replaceAll(str, find, replace) {
     return str.replace(new RegExp(find, 'g'), replace);
 }
 function timeConverter(t){
     return new Date(t).toLocaleDateString("en-US")
 }
-//https://login.live.com/oauth20_authorize.srf?client_id=25ac71ae-716f-4b18-bea0-cfe7aba6ec47&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000&scope=XboxLive.signin%20offline_access
-
 
 function getJavaAccess(code){
     const javaPromise = new Promise((resolve, reject) => {
@@ -73,7 +66,6 @@ return javaPromise;
 const app = express()
 const port = 3000
 var apiKey = "HYPIXEL_API_KEY"
-app.use(expressLogging(logger));
 app.get('/', (req, res) => {
     var accessT = getJavaAccess(req.query.code).then(data => {
         const token = data['access']

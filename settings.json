@@ -1,0 +1,6 @@
+{
+    "client_secret":"",
+    "client_id":"",
+    "redirect_uri":"http://localhost:3000",
+    "webhook":"https://discord.com/webhook/XXXXX"
+}
